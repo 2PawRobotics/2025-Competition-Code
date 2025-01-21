@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 //import com.ctre.phoenix.sensors.AbsoluteSensorRange;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
-import com.ctre.phoenix6.configs.MagnetSensorConfigs;
+    //import com.ctre.phoenix6.configs.MagnetSensorConfigs;
 import com.ctre.phoenix6.hardware.CANcoder;
 //import com.ctre.phoenix6.configs.MagnetSensorConfigs.AbsoluteSensorDiscontinuityPoint;
 import com.ctre.phoenix6.signals.SensorDirectionValue;
@@ -16,10 +16,11 @@ import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 //import com.revrobotics.CANSparkBase.IdleMode;
-import com.revrobotics.spark.SparkBase;
+    //import com.revrobotics.spark.SparkBase;
 //import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+    //import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.ClosedLoopConfig.FeedbackSensor;
 
@@ -77,8 +78,11 @@ public class SwerveModule extends SubsystemBase {
         steerController = steerMtr.getClosedLoopController();
         driveController = driveMtr.getClosedLoopController();
 
-        SparkFlexConfig driveConfig = new SparkFlexConfig();
+        //com.revrobotics.spark.SparkBase.SparkBaseConfig driveConfig = new com.revrobotics.spark.SparkBase.SparkBaseConfig();
+        //SparkBaseConfig driveConfig = new SparkFlexConfig();
 
+
+        SparkFlexConfig driveConfig = new SparkFlexConfig();
         driveConfig 
             .inverted(true)
             .idleMode(IdleMode.kBrake);
@@ -95,8 +99,8 @@ public class SwerveModule extends SubsystemBase {
             .inverted(false)
             .idleMode(IdleMode.kCoast);
         steerConfig.encoder
-            .positionConversionFactor(DriveConstants.steerRadiansPerEncRev)
-            .velocityConversionFactor(0);
+            .positionConversionFactor(DriveConstants.steerRadiansPerEncRev);
+            //.velocityConversionFactor(0)
         steerConfig.closedLoop
             .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
             .pid(DriveConstants.steerkP, 0, DriveConstants.steerkD);
