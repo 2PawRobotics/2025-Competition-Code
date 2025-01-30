@@ -126,6 +126,11 @@ public class SwerveSys extends SubsystemBase {
         backRightMod.resetDriveDistance();
         
         resetPose();
+
+        System.out.println(frontLeftMod.getSteerEncAngle());
+        System.out.println(frontRightMod.getSteerEncAngle());
+        System.out.println(backLeftMod.getSteerEncAngle());
+        System.out.println(backRightMod.getSteerEncAngle());
     }
 
     // This method will be called once per scheduler run

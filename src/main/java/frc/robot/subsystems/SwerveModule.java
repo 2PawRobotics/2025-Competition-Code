@@ -133,6 +133,7 @@ public class SwerveModule extends SubsystemBase {
      * @return The current position of the module.
      */
     public SwerveModulePosition getPosition() {
+
     return new SwerveModulePosition(
         driveEnc.getPosition(), getSteerEncAngle());
     }
